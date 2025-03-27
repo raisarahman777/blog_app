@@ -14,6 +14,11 @@ abstract interface class AuthRemoteDataSource {
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
+  /*
+  Dependency injection (not initializing SupabaseClient here).
+  - No dependency between the class and SupabaseClient.
+  - Helps in testing.
+  */
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceImpl(this.supabaseClient);
 
@@ -27,6 +32,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
+  /*
+  What this method does:
+  - Whenever this method is called, a user is created in Supabase authentication.
+   */
   Future<String> signUpWithEmailPassword({
     required String name,
     required String email,

@@ -15,6 +15,22 @@ class UserSignUpParams {
   });
 }
 
+/*
+UseCase is an abstract class that defines a blueprint for every usecase.
+It has a method call().
+  - takes: parameters
+  - returns: Either<Failure, SuccessType>
+*/
+
+/*
+UserSignUp is a usecase.
+It contains the attribute AuthRepository.
+AuthRepository is a bridge between the data layer and the domain layer.
+It has two methods:
+  - signUpWithEmailPassword
+  - loginWithEmailPassword
+ */
+
 class UserSignUp implements UseCase<String, UserSignUpParams> {
   final AuthRepository authRepository;
 
